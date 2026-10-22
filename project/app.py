@@ -33,8 +33,13 @@ def create_app(test_config=None):
     app = Flask(__name__)
     database_path = Path(__file__).resolve().parent / "flaskr.db"
     database_url = os.getenv("DATABASE_URL", f"sqlite:///{database_path}")
+    # Explicitly use the psycopg2 driver installed in requirements.txt.
     if database_url.startswith("postgres://"):
-        database_url = database_url.replace("postgres://", "postgresql://", 1)
+        database_url = database_url.replace("postgres://", "postgresql+psycopg2://", 1)
+    elif database_url.startswith("postgresql://"):
+        database_url = database_url.replace(
+            "postgresql://", "postgresql+psycopg2://", 1
+        )
     app.config.from_mapping(
         USERNAME=os.getenv("APP_USERNAME", "Shaurya"),
         PASSWORD=os.getenv("APP_PASSWORD", "Shaurya"),
