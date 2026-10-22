@@ -1,5 +1,15 @@
 # ECE444 PRA6: Flaskr TDD and deployment reference
 
+## Live deployment
+
+App: https://ece444-pra6-2sbf.onrender.com
+
+Hosted on Render with Gunicorn and a Render PostgreSQL database. Verified login,
+posting, case-insensitive search, protected deletion, and logout on the live app.
+The five-test pytest suite, Black formatting check, and Flake8 check pass.
+PostgreSQL URLs explicitly select the installed psycopg2 driver.
+
+
 This is a runnable reference for the activities in
 https://github.com/shuruizUofT/flaskr-tdd/blob/main/README.md.
 It includes the final SQLAlchemy version, search, login-protected deletion,
