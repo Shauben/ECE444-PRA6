@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block body %}
+  {% if session.get('logged_in') %}
+    <form action="{{ url_for('add_entry') }}" method="post" class="mb-4">
+      <label for="title" class="form-label">Title:</label>
+      <input id="title" name="title" class="form-control mb-2" required>
+      <label for="text" class="form-label">Text:</label>
+      <textarea id="text" name="text" rows="4" class="form-control mb-2" required></textarea>
+      <button class="btn btn-primary" type="submit">Share</button>
+    </form>
+  {% endif %}
+  {% set empty_message = "No entries yet. Add some!" %}
+  {% include "_entries.html" %}
+{% endblock %}

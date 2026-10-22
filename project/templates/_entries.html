@@ -1,0 +1,13 @@
+<ul class="entries list-unstyled">
+  {% for entry in entries %}
+    <li class="entry card p-3 mb-3">
+      <h2 id="{{ entry.id }}">{{ entry.title }}</h2>
+      <div>{{ entry.text | clean_html | safe }}</div>
+      {% if session.get('logged_in') %}
+        <button type="button" class="delete-post btn btn-outline-danger mt-2" data-post-id="{{ entry.id }}">Delete</button>
+      {% endif %}
+    </li>
+  {% else %}
+    <li><em>{{ empty_message }}</em></li>
+  {% endfor %}
+</ul>

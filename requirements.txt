@@ -1,0 +1,8 @@
+Flask>=3.1,<4
+Flask-SQLAlchemy>=3.1,<4
+gunicorn>=23,<27
+psycopg2-binary>=2.9,<3
+bleach>=6,<7
+pytest>=8,<10
+black>=24,<27
+flake8>=7,<8

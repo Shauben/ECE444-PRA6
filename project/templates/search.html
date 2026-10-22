@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %}
+  <form action="{{ url_for('search') }}" method="get" class="mb-4">
+    <label for="query" class="form-label">Search:</label>
+    <input id="query" name="query" value="{{ query }}" class="form-control mb-2">
+    <button class="btn btn-info" type="submit">Search</button>
+  </form>
+  {% if query %}
+    {% set empty_message = "No matching entries." %}
+    {% include "_entries.html" %}
+  {% endif %}
+{% endblock %}
