@@ -95,7 +95,8 @@ def create_app(test_config=None):
 
     # GET deletion matches the assigned tutorial's JavaScript/API.
     # In a production app, use POST/DELETE with CSRF protection instead.
-   
+    @app.route("/delete/<int:post_id>", methods=["GET"])
+    @login_required
     def delete_entry(post_id):
         entry = db.session.get(Post, post_id)
         if entry is None:
